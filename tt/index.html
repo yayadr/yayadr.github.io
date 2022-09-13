@@ -13,10 +13,28 @@
 <!--
 说明：通过h5可换醒app，如访问一个URL，点击按钮，打开应用，如果该应用APP没有安装，那么直接跳转到App Store的APP下载页面，通过点击的方式。兼容性较好，如果安装了app，在手机各大浏览器(360浏览器 uc浏览器 搜狗浏览器 QQ浏览器 百度浏览器 )和QQ客户端中，能唤醒。微信 新浪微博客户端 腾讯微博客户端无法唤醒。
 -->
-
-<a href="umap://com.abc.umap.allinone/skip?source=waibu&key1=10000101&key2=sys" id="zjmobliestart" target="_blank">唤醒App！</a>
+<a >正在唤醒App！</a>
+<a href="umap://com.abc.umap.allinone/skip?source=waibu&key1=10000101&key2=sys" id="zjmobliestart" target="_blank">手动唤醒App！</a>
 
 <script type="text/javascript"> 
+    var u = navigator.userAgent,
+    app = navigator.appVersion;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if(isIOS){
+        window.location.href = "umap://com.abc.umap.allinone/skip?source=waibu&key1=10000101&key2=sys"; 
+    }
+    if(isAndroid){
+        alert("请点击右上角在浏览器打开");
+        window.location.href = "umap://com.abc.umap.allinone/skip?source=waibu&key1=10000101&key2=sys";
+        var ifr = document.createElement('iframe'); 
+        ifr.src = 'efunbox://efunbox.app/efunbox/open'; 
+        ifr.style.display = 'none'; 
+        document.body.appendChild(ifr); 
+        window.setTimeout(function(){ 
+            document.body.removeChild(ifr); 
+        },3000);
+    }
 function applink(){  
     return function(){  
         var clickedAt = +new Date;  
