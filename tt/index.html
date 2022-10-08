@@ -7,7 +7,7 @@
 <script>
  
     // 检查是否安装app
-    function openApp(e){
+  
         var u = window.navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
@@ -17,7 +17,7 @@
         if(isiOS){
             ios();
         }
-    }
+    
     function android(){
       alert('android')
         var _clickTime = new Date().getTime();
