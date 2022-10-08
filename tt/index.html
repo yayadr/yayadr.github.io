@@ -12,12 +12,23 @@
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         if(isAndroid){
-            android();
+            applink();
         }
         if(isiOS){
             ios();
         }
-    
+    function applink(){  
+     return function(){  
+         var clickedAt = +new Date;  
+          setTimeout(function(){
+              !window.document.webkitHidden && setTimeout(function(){ 
+                    if (+new Date - clickedAt < 2000){  
+                        window.location = 'quickstartmobilescheme://jumptype=browser?source=waibu&key1=10000101&key2=sys';  
+                    }  
+              }, 500);       
+          }, 500)   
+     };  
+   } 
     function android(){
       alert('android')
         var _clickTime = new Date().getTime();
