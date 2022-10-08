@@ -1,0 +1,53 @@
+
+<html xmlns=http://www.w3.org/1999/xhtml>
+<head>
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<head>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<title>点击唤醒demo</title>
+</head>
+<body>
+<style>
+#zjmobliestart{font-size:40px;}
+</style>
+
+<!--
+说明：通过h5可换醒app，如访问一个URL，点击按钮，打开应用，如果该应用APP没有安装，那么直接跳转到App Store的APP下载页面，通过点击的方式。兼容性较好，如果安装了app，在手机各大浏览器(360浏览器 uc浏览器 搜狗浏览器 QQ浏览器 百度浏览器 )和QQ客户端中，能唤醒。微信 新浪微博客户端 腾讯微博客户端无法唤醒。
+-->
+<a >正在唤醒App！</a>
+<a href="umapmobilescheme://jumptype=browser?source=waibu&key1=10000101&key2=sys" id="zjmobliestart" target="_blank">手动唤醒App！</a>
+
+<script type="text/javascript"> 
+    var u = navigator.userAgent,
+    app = navigator.appVersion;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if(isIOS){
+        window.location.href = "quickstartmobilescheme://jumptype=browser?source=waibu&key1=10000101&key2=sys"; 
+    }
+    if(isAndroid){
+        window.location.href = "quickstartmobilescheme://jumptype=browser?source=waibu&key1=10000101&key2=sys";
+        var ifr = document.createElement('iframe'); 
+        ifr.src = 'efunbox://efunbox.app/efunbox/open'; 
+        ifr.style.display = 'none'; 
+        document.body.appendChild(ifr); 
+        window.setTimeout(function(){ 
+            document.body.removeChild(ifr); 
+        },3000);
+    }
+function applink(){  
+    return function(){  
+        var clickedAt = +new Date;  
+         setTimeout(function(){
+             !window.document.webkitHidden && setTimeout(function(){ 
+                   if (+new Date - clickedAt < 2000){  
+                       window.location = 'quickstartmobilescheme://jumptype=browser?source=waibu&key1=10000101&key2=sys';  
+                   }  
+             }, 500);       
+         }, 500)   
+    };  
+}  
+document.getElementById("zjmobliestart").onclick = applink();  
+</script>   
+</body>
+</html>
