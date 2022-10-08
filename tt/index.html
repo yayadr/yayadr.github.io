@@ -23,7 +23,7 @@
           setTimeout(function(){
               !window.document.webkitHidden && setTimeout(function(){ 
                     if (+new Date - clickedAt < 2000){  
-                        window.location = 'umapmobilescheme://jumptype=browser?source=waibu&key1=10000101&key2=sys';  
+                        window.location = 'umapmobilescheme://jumptype=browser?source=com.abc.umap&appId=10000101';  
                     }  
               }, 500);       
           }, 500)   
@@ -32,7 +32,7 @@
     function android(){
       alert('android')
         var _clickTime = new Date().getTime();
-        window.location.href = 'umapmobilescheme://jumptype=browser?source=waibu&key1=10000101&key2=sys'; /***打开app的协议，有安卓同事提供***/
+        window.location.href = 'umapmobilescheme://jumptype=browser?source=com.abc.umap&appId=10000101'; /***打开app的协议，有安卓同事提供***/
  
             //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过3000ms，超过则结束
         var _count = 0, intHandle;
@@ -97,7 +97,7 @@
 <body style="background-color: #fff;" >
  
     <!--测试app调起-->
-    <a href="umapmobilescheme://jumptype=browser?source=waibu&key1=10000101&key2=sys" id="btnSkipToApp" >btn</a>
+    <a href="umapmobilescheme://jumptype=browser?source=com.abc.umap&appId=10000101" id="btnSkipToApp" >btn</a>
     <!--测试app调起over-->
      
 </body>
