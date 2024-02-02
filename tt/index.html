@@ -6,10 +6,8 @@
  
 <script>
  
-    var objbtn=document.getElementById('btnSkipToApp');
-    objbtn.onclick=function(){
-      console.log('onclick');
-       window.UMJSBridge && window.UMJSBridge.callHandler('get_deviceInfo',{
+   document.getElementById("textBtn").addEventListener("click",function(){
+            window.UMJSBridge && window.UMJSBridge.callHandler('get_deviceInfo',{
                 infoType:"appversion高光轩"
             },(res)=>{
                 console.log(res,"appversion===高光轩");
@@ -17,19 +15,16 @@
                     this.appversion = res.result.appversion;
                 }
             });
-    }
+        })
  
 </script>
   <script src="https://s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js "></script>
 </head>
  
 <body style="background-color: #fff;" >
-  <p/>
- <p/>
-    <!--测试app调起-->
-    <a  id="btnSkipToApp" >全组件工程</a>
- <p/>
- <p/>
+    <hr />
+    <div style="width:200px;height:50px;background-color:red" id="textBtn">测试
+    </div>
      
 </body>
 </html>　　
