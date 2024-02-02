@@ -8,6 +8,7 @@
  
     var objbtn=document.getElementById('btnSkipToApp');
     objbtn.onclick=function(){
+      console.log('onclick');
        window.UMJSBridge && window.UMJSBridge.callHandler('get_deviceInfo',{
                 infoType:"appversion高光轩"
             },(res)=>{
@@ -19,6 +20,7 @@
     }
  
 </script>
+  <script src="https://s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js "></script>
 </head>
  
 <body style="background-color: #fff;" >
@@ -28,8 +30,6 @@
     <a  id="btnSkipToApp" >全组件工程</a>
  <p/>
  <p/>
- <a href="quickstartmobilescheme://jumptype=browser?source=waibu" >平步轻云</a>
-    <!--测试app调起over-->
      
 </body>
 </html>　　
