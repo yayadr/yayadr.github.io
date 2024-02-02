@@ -6,89 +6,16 @@
  
 <script>
  
-    // 检查是否安装app
-  
-        var u = window.navigator.userAgent;
-        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        if(isAndroid){
-            applink();
-        }
-        if(isiOS){
-            ios();
-        }
-    function applink(){  
-     return function(){  
-         var clickedAt = +new Date;  
-          setTimeout(function(){
-              !window.document.webkitHidden && setTimeout(function(){ 
-                    if (+new Date - clickedAt < 2000){  
-                        window.location = 'umapmobilescheme://jumptype=browser?source=com.abc.umap&appId=10000101';  
-                    }  
-              }, 500);       
-          }, 500)   
-     };  
-   } 
-    function android(){
-      alert('android')
-        var _clickTime = new Date().getTime();
-        window.location.href = 'umapmobilescheme://jumptype=browser?source=com.abc.umap&appId=10000101'; /***打开app的协议，有安卓同事提供***/
- 
-            //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过3000ms，超过则结束
-        var _count = 0, intHandle;
-        intHandle = setInterval(function(){
-            _count++;
-            var elsTime = new Date().getTime() - _clickTime;
-            if (_count>=100 || elsTime > 3000 ) {
-                console.log(_count)
-                console.log(elsTime)
-                clearInterval(intHandle);
-                //检查app是否打开
-                if ( document.hidden || document.webkitHidden) {
-                    // 打开了
-                    window.close();
-                } else {
-                    // 没打开
-                    alert('没打开')
-                    // window.location.href = "？？？？？？？？？？？？？？";//下载链接
-                }
-            }
-        }, 20);
- 
-    }
- 
-    function ios(){
-        var _clickTime = +(new Date());
-        var ifr = document.createElement("iframe");
-        ifr.src = "？？？？？？？？？？？？？？"; /***打开app的协议，有ios同事提供***/
-        ifr.style.display = "none";
-        document.body.appendChild(ifr);
-        //启动间隔20ms运行的定时器，并检测累计消耗时间是否超过3000ms，超过则结束
-        var _count = 0, intHandle;
-        intHandle = setInterval(function(){
-            _count++;
-            var elsTime =  +(new Date()) - _clickTime;
-            console.log(_count,elsTime,+(new Date()),_clickTime)
-            if (_count>=100 || elsTime > 3000 ) {
-                clearInterval(intHandle);
-                document.body.removeChild(ifr);
-                //检查app是否打开
-                if ( document.hidden || document.webkitHidden) {
-                    // 打开了
-                    window.close();
-                } else {
-                    // 没打开
-                    alert('没打开')
-                    // window.location.href = "？？？？？？？？？？？？？？？";//下载链接
-                }
-            }
-        },20);
-    }
- 
     var objbtn=document.getElementById('btnSkipToApp');
     objbtn.onclick=function(){
-      alert('点击')
-        openApp()
+       window.UMJSBridge && window.UMJSBridge.callHandler('get_deviceInfo',{
+                infoType:"appversion高光轩"
+            },(res)=>{
+                console.log(res,"appversion===高光轩");
+                if(res.result && res.result.appversion){
+                    this.appversion = res.result.appversion;
+                }
+            });
     }
  
 </script>
@@ -98,7 +25,7 @@
   <p/>
  <p/>
     <!--测试app调起-->
-    <a href="umapmobilescheme://jumptype=browser?source=com.abc.umap&appId=10000101" id="btnSkipToApp" >全组件工程</a>
+    <a  id="btnSkipToApp" >全组件工程</a>
  <p/>
  <p/>
  <a href="quickstartmobilescheme://jumptype=browser?source=waibu" >平步轻云</a>
