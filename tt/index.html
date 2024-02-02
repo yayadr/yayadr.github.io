@@ -7,10 +7,11 @@
 <script>
  
    document.getElementById("textBtn").addEventListener("click",function(){
+    console.log("click");
             window.UMJSBridge && window.UMJSBridge.callHandler('get_deviceInfo',{
                 infoType:"appversion高光轩"
             },(res)=>{
-                console.log(res,"appversion===高光轩");
+                console.log("appversion===高光轩");
                 if(res.result && res.result.appversion){
                     this.appversion = res.result.appversion;
                 }
