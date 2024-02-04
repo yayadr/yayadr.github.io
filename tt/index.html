@@ -1,11 +1,20 @@
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<title></title>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no;" name="viewport" />
- 
+    <title>自研容器</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta>
+<body style="background-color: #7dc3c9;">
+    <hr />
+    <div style="width:200px;height:50px;background-color:red" id="textBtn">测试
+    </div>
+     
+
 <script>
- 
    document.getElementById("textBtn").addEventListener("click",function(){
     console.log("click");
             window.UMJSBridge && window.UMJSBridge.callHandler('get_deviceInfo',{
@@ -19,13 +28,7 @@
         })
  
 </script>
-  <script src="https://s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js "></script>
-</head>
+<script src="https://s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js "></script>
  
-<body style="background-color: #fff;" >
-    <hr />
-    <div style="width:200px;height:50px;background-color:red" id="textBtn">测试
-    </div>
-     
 </body>
 </html>　　
