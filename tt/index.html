@@ -21,6 +21,7 @@
                 infoType:"appversion高光轩"
             },(res)=>{
                 console.log("appversion===高光轩");
+                console.log("appversion==="+JSON.stringify(res));
                 if(res.result && res.result.appversion){
                     this.appversion = res.result.appversion;
                 }
